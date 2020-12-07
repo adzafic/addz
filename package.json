@@ -4,8 +4,9 @@
   "description": "Gestionar datos clientes api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "node server/index.js"
   },
   "author": "adzafics",
-  "license": "ISC"
+  "license": "MIT"
 }
