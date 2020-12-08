@@ -12,6 +12,9 @@ connectDB();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//rutas
+app.use('/api/users', require('./routes/api/user'));
+app.use('/api/auth', require('./routes/api/auth'));
 //endpoints
 app.get('/', (req, res) => {
   res.send({ message: 'Hola mundo' });
