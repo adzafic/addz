@@ -31,7 +31,7 @@ router.post(
       let user = await User.findOne({ email });
       console.log(user, name, email, password);
       if (user) {
-        res.status(400).send({ errors: [{ msg: 'Usuario ya existe' }] });
+        return res.status(400).send({ errors: [{ msg: 'Usuario ya existe' }] });
       }
       user = new User({
         name,
