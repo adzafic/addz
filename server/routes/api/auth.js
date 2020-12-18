@@ -19,6 +19,10 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
+router.get('/check', (req, res) => {
+  res.status(200).json({ msg: 'OK' });
+});
+
 //@route POST api/auth/login
 //@desc test users
 //@acess Public
