@@ -10,6 +10,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './components/login/login.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from './service/authentication.service';
+
 @NgModule({
   declarations: [AppComponent, LoginComponent],
   imports: [
@@ -20,8 +23,9 @@ import { LoginComponent } from './components/login/login.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
