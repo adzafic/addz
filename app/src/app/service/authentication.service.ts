@@ -9,19 +9,22 @@ import { map } from 'rxjs/operators';
 export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string) {
-    const headers = { 'Content-Type': 'application/json' };
-    this.http
-      .post(
-        'api/auth/login',
-        {
-          email,
-          password,
-        },
-        { headers }
-      )
-      .subscribe((data: any) => {
-        console.log(data);
-      });
+  async login(email: string, password: string) {
+    let res = await this.http.post('/api/auth/login', {
+      email,
+      password,
+    });
+    res.subscribe((token) => this.saveToken(token));
+    console.log(res);
+  }
+
+  test() {
+    this.http.get('/api/auth/check').subscribe((res) => {
+      console.log(res);
+    });
+  }
+
+  saveToken(token: Object) {
+    localStorage.setItem('token', JSON.stringify(token));
   }
 }
