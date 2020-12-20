@@ -36,4 +36,9 @@ export class LoginComponent implements OnInit {
     this.auth.login(email, password);
     console.log(this.loginForm.value);
   }
+
+  //TODO
+  //ejecutar logout
+  //pasar localstorge en componente login login | isauthenticated
+  logout() {}
 }

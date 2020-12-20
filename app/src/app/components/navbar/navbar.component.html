@@ -1,25 +1,16 @@
 <mat-toolbar>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
+  <button mat-icon-button class="navbar-icon" aria-label="Menu">
     <mat-icon>menu</mat-icon>
   </button>
   <span>ADDZ</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
+  <span class="spacer"></span>
+  <button mat-icon-button class="favorite-icon" aria-label="corazon">
     <mat-icon>favorite</mat-icon>
   </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
+  <button mat-icon-button class="navbar-icon" aria-label="Compartir">
     <mat-icon>share</mat-icon>
+  </button>
+  <button mat-icon-button (click)="click()">
+    <mat-icon>send</mat-icon>
   </button>
 </mat-toolbar>
