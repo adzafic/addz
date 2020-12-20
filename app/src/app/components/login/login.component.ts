@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.auth.isAuthenticate();
     this.loginForm = this.formBuilder.group({
       email: [
         null,

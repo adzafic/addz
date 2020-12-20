@@ -8,13 +8,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { LoginComponent } from './components/login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from './service/authentication.service';
+import { MainComponent } from './components/main/main.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { from } from 'rxjs';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, MainComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +29,8 @@ import { AuthenticationService } from './service/authentication.service';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent],
