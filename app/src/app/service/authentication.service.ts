@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +17,9 @@ export class AuthenticationService {
       password,
     });
     res.subscribe((obj) => {
-      this.saveToken(obj['token']);
+      this.saveToken(obj);
       this.router.navigateByUrl('/');
     });
-    console.log(res);
   }
 
   test() {
@@ -29,17 +29,17 @@ export class AuthenticationService {
   }
 
   saveToken(token: Object) {
-    localStorage.setItem('token', JSON.stringify(token));
+    const expiresAt = moment().add(token['expiresIn'], 'second');
+    localStorage.setItem('token', JSON.stringify(token['token']));
+    localStorage.setItem('expiresAt', JSON.stringify(expiresAt.valueOf()));
   }
 
-  isAuthenticate(): boolean {
-    let token = localStorage.getItem('token');
-    console.log('token', token);
-    if (token != null) {
-      if (token.length > 2) {
-        return true;
-      }
-    }
-    return false;
+  getExpiration() {
+    const expiration = localStorage.getItem('expiresAt');
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
+  }
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
   }
 }

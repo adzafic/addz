@@ -17,9 +17,10 @@ import { AuthenticationService } from './service/authentication.service';
 import { MainComponent } from './components/main/main.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { from } from 'rxjs';
+import { AddClientComponent } from './components/add-client/add-client.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, MainComponent, NavbarComponent],
+  declarations: [AppComponent, LoginComponent, MainComponent, NavbarComponent, AddClientComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
