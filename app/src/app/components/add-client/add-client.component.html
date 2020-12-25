@@ -1,1 +1,11 @@
-<p>TODO: CREAR FORMULARIO</p>
+<div class="form-client-container">
+  <form [formGroup]="clientForm">
+    <mat-form-field class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <button class="full-width" mat-raised-button color="primary" type="submit">
+      Enviar
+    </button>
+  </form>
+</div>

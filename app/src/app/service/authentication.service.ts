@@ -22,6 +22,12 @@ export class AuthenticationService {
     });
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('expiresAt');
+    this.router.navigateByUrl('/login');
+  }
+
   test() {
     this.http.get('/api/auth/check').subscribe((res) => {
       console.log(res);
@@ -37,9 +43,14 @@ export class AuthenticationService {
   getExpiration() {
     const expiration = localStorage.getItem('expiresAt');
     const expiresAt = JSON.parse(expiration);
+    console.log(expiresAt);
     return moment(expiresAt);
   }
   public isLoggedIn() {
+    console.log(moment().isBefore(this.getExpiration()));
+    if (this.getExpiration === null) {
+      return false;
+    }
     return moment().isBefore(this.getExpiration());
   }
 }
