@@ -4,6 +4,22 @@
       <mat-label>Nombre</mat-label>
       <input matInput />
     </mat-form-field>
+    <mat-from-filed>
+      <mat-toolbar>
+        <!-- Display files names -->
+        <input matInput readonly name="name" value="Nombre imagen" />
+
+        <!-- Browse Button -->
+        <button mat-flat-button color="primary">Browse File</button>
+      </mat-toolbar>
+      <input
+        type="file"
+        #fileInput
+        id="uploadFile"
+        name="uploadFile"
+        multiple="multiple"
+      />
+    </mat-from-filed>
     <button class="full-width" mat-raised-button color="primary" type="submit">
       Enviar
     </button>
