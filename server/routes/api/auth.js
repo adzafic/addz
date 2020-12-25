@@ -6,6 +6,7 @@ const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const bcrypt = require('bcryptjs');
+const EXPIRES_IN = 3600;
 
 //@route GET api/auth
 //@desc test auth
@@ -62,10 +63,10 @@ router.post(
       jwt.sign(
         payload,
         config.get('jwtSecret'),
-        { expiresIn: 3600 },
+        { expiresIn: EXPIRES_IN },
         (err, token) => {
           if (err) throw err;
-          res.status(200).json({ token });
+          res.status(200).json({ token, expiresIn: EXPIRES_IN });
         }
       );
     } catch (error) {}
